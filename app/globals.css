@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font family CSS variables (--font-display / --font-serif / --font-sans /
+   --font-mono) are injected by next/font on the <html> element in
+   app/layout.tsx. */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #f2efe7;
+    color: #14130f;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #f03a17;
+    color: #f2efe7;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f2efe7;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #14130f;
+    border: 3px solid #f2efe7;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 md:px-10 lg:px-16;
+  }
+
+  /* Full-bleed inverted (black) spread — editorial rhythm. */
+  .spread-invert {
+    @apply bg-ink text-bone;
+  }
+  .spread-invert ::selection {
+    background: #f03a17;
+    color: #14130f;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-label text-smoke;
+  }
+
+  /* Heavy editorial rules. */
+  .rule {
+    @apply border-t-2 border-ink;
+  }
+  .rule-invert {
+    @apply border-t-2 border-bone;
+  }
+
+  .display-clamp {
+    font-size: clamp(2.5rem, 9.2vw, 9.5rem);
+    line-height: 0.84;
+    letter-spacing: -0.04em;
+  }
+
+  .display-clamp-lg {
+    font-size: clamp(2.5rem, 9vw, 9rem);
+    line-height: 0.88;
+    letter-spacing: -0.035em;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover {
+    background-size: 100% 2px;
+  }
+}
+
+/* Film grain overlay — texture reads as craft. */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
