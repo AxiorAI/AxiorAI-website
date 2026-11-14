@@ -22,7 +22,7 @@ export function Footer() {
       <div className="shell border-t-2 border-ink pt-10">
         <a
           href="#top"
-          className="font-display text-[clamp(3rem,14vw,12rem)] font-extrabold leading-none tracking-tightest text-ink"
+          className="font-sans text-[clamp(3rem,14vw,12rem)] font-extrabold leading-none tracking-[-0.045em] text-ink"
         >
           Axior
           <span className="text-accent">AI</span>

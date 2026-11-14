@@ -19,8 +19,9 @@ export function Nav() {
     setCondensed(v > 40);
   });
 
-  // Solid ink bar once scrolled; transparent ink-on-paper at the very top.
-  const onDark = condensed;
+  // Solid ink bar once scrolled; transparent over the dark hero at the top.
+  // The hero is dark, so the bar is light-on-dark at the top as well.
+  const onDark = true;
 
   return (
     <header
@@ -31,7 +32,7 @@ export function Nav() {
       <nav className="shell flex items-center justify-between py-4">
         <a
           href="#top"
-          className={`group font-display text-2xl font-extrabold tracking-tight md:text-3xl ${
+          className={`group font-sans text-2xl font-extrabold tracking-[-0.03em] md:text-[1.7rem] ${
             onDark ? "text-paper" : "text-ink"
           }`}
         >

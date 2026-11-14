@@ -9,7 +9,7 @@ type MagneticButtonProps = {
   href?: string;
   onClick?: () => void;
   className?: string;
-  variant?: "solid" | "ghost" | "invert";
+  variant?: "solid" | "ghost" | "invert" | "ghost-invert";
 };
 
 export function MagneticButton({
@@ -47,7 +47,9 @@ export function MagneticButton({
       ? "bg-ink text-paper hover:bg-accent"
       : variant === "invert"
         ? "bg-paper text-ink hover:bg-accent hover:text-paper"
-        : "border-2 border-ink text-ink hover:bg-ink hover:text-paper";
+        : variant === "ghost-invert"
+          ? "border-2 border-bone/70 text-bone hover:border-bone hover:bg-bone hover:text-ink"
+          : "border-2 border-ink text-ink hover:bg-ink hover:text-paper";
 
   const content = (
     <motion.span style={{ x: sx, y: sy }} className="inline-flex items-center gap-2">
