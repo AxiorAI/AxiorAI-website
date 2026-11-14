@@ -1,20 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { categories } from "@/data/projects";
 import { MagneticButton } from "./MagneticButton";
+import { SignalGraph } from "./SignalGraph";
 
-const ticker = [
-  "Agentic architectures",
-  "Fine-tuned LLMs",
-  "Retrieval systems",
-  "Cloud + web",
-  "Sensor intelligence",
-];
+const domains = categories.filter((c) => c !== "All");
 
 export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden bg-paper">
-      <div className="shell flex min-h-[100svh] flex-col justify-between pt-28 pb-0">
+      <div className="shell flex min-h-[100svh] flex-col justify-between pt-28 pb-12">
         {/* Top metadata row */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -23,16 +20,18 @@ export function Hero() {
           className="flex items-start justify-between border-b border-line pb-5"
         >
           <span className="eyebrow">Applied-AI Lab</span>
-          <span className="eyebrow hidden text-right sm:block">
-            Est. 2026
-            <br />
-            Remote · India / EU
+          <span className="eyebrow flex items-center gap-2 text-right">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            Innovation Delivered
           </span>
-          <span className="eyebrow text-right">N13.08 / E80.27</span>
         </motion.div>
 
         {/* Giant grid-breaking headline */}
         <div className="relative flex-1 py-10">
+          <SignalGraph />
           <p className="absolute right-0 top-10 hidden max-w-[15rem] text-right font-mono text-[11px] leading-relaxed text-smoke md:block">
             [ Vol. 01 ] — We design and ship production-grade intelligence for
             teams that refuse to guess.
@@ -68,28 +67,38 @@ export function Hero() {
               Start a project
             </MagneticButton>
           </div>
-          <p className="max-w-sm font-mono text-[11px] leading-relaxed text-smoke">
-            Dozens of shipped projects across telecom, healthcare, marine,
-            manufacturing, and fintech.
-          </p>
+          <div className="max-w-sm font-mono text-[11px] uppercase leading-relaxed tracking-label text-smoke">
+            Dozens of shipped projects in
+            <DomainCycler />
+          </div>
         </motion.div>
 
-        {/* Kinetic marquee strip */}
-        <div className="relative mt-8 overflow-hidden border-y-2 border-ink py-3">
-          <div className="flex w-max animate-marquee items-center gap-6">
-            {[...ticker, ...ticker, ...ticker, ...ticker].map((t, i) => (
-              <span
-                key={i}
-                className="flex items-center gap-6 font-mono text-[12px] uppercase tracking-label text-ink"
-              >
-                {t}
-                <span className="text-accent">✳</span>
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
+  );
+}
+
+function DomainCycler() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setI((n) => (n + 1) % domains.length), 1800);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span className="relative mt-2 block h-[2.4rem] overflow-hidden">
+      <AnimatePresence mode="popLayout">
+        <motion.span
+          key={domains[i]}
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "-100%", opacity: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute left-0 top-0 inline-block bg-accent px-3 py-1 font-display text-2xl font-extrabold normal-case tracking-tight text-paper"
+        >
+          {domains[i]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
   );
 }
 

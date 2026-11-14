@@ -20,7 +20,7 @@ export function Contact() {
     <section id="contact" className="spread-invert relative overflow-hidden py-24 md:py-36">
       <div className="shell">
         <div className="flex items-center justify-between border-b border-line-invert pb-5">
-          <span className="eyebrow text-bone/60">Contact / (06)</span>
+          <span className="eyebrow text-bone/60">Contact</span>
           <span className="eyebrow text-bone/60">axiorai.s@gmail.com</span>
         </div>
 
@@ -44,7 +44,6 @@ export function Contact() {
                   value="axiorai.s@gmail.com"
                   href="mailto:axiorai.s@gmail.com"
                 />
-                <ContactItem label="Lab" value="Remote-first · India & EU" />
               </div>
             </Reveal>
           </div>

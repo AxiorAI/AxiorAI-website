@@ -6,12 +6,34 @@ export type Project = {
   stack: string[];
   link: string;
   image: string | null;
+  // Client logo, shown when there's no project image.
+  logo?: string;
   featured?: boolean;
 };
 
-// Project portfolio. `image: null` renders a deterministic generative
-// visual (see components/ProjectVisual.tsx).
+// Project portfolio. Visuals fall back image → logo → generative tile
+// (see components/ProjectMedia.tsx).
 export const projects: Project[] = [
+  {
+    title: "Natya AI",
+    category: "Performing Arts",
+    year: "2026",
+    desc: "An AI-powered evaluation platform for Bharatanatyam, built end to end by AxiorAI. Dancers record a performance and computer vision scores posture, adavu precision, hasta mudras, abhinaya, and stage presence — with guru-style written feedback, progress tracking, and certification across three structured levels: Unnati, Pravāha, and Kalānidhi.",
+    stack: ["Computer Vision", "Pose Detection", "Expression Analysis", "Next.js"],
+    link: "https://natyaai.in/",
+    image: null,
+    featured: true,
+  },
+  {
+    title: "Kidling",
+    category: "Kids & Family",
+    year: "2026",
+    desc: "A safe, ad-free social and video platform for kids aged 0–18, built by AxiorAI. Families get animated rhymes, songs, and learning videos — with a parent gate guarding purchases and settings, per-family favourites and history, and subscription plans with AutoPay.",
+    stack: ["Python", "FastAPI", "React"],
+    link: "https://kidlingrhymes.com/",
+    image: "/projects/kidling.jpg",
+    featured: true,
+  },
   {
     title: "Lynora",
     category: "Telecom",
@@ -29,7 +51,8 @@ export const projects: Project[] = [
     desc: "A technical-support assistant trained on industry-standard 5G specifications for internal teams and users. A retrieval-based system that contextualizes dense telecom documentation, letting users query and understand 5G standards with high accuracy.",
     stack: ["LLM", "Python", "MongoDB", "RAG"],
     link: "https://www.vaanmegam.net/",
-    image: "/projects/vaanmegam.jpeg",
+    image: null,
+    logo: "/clients/vaanmegam.svg",
     featured: true,
   },
   {
@@ -40,6 +63,7 @@ export const projects: Project[] = [
     stack: ["Python", "NLP", "FastAPI", "LLM"],
     link: "https://www.oncofocus.com/",
     image: null,
+    logo: "/clients/oncofocus.png",
     featured: true,
   },
   {
@@ -59,7 +83,8 @@ export const projects: Project[] = [
     desc: "A time-series forecasting system estimating air-quality metrics from historical environmental data. A short-term predictive model forecasting PM2.5 levels by fusing meteorological signals with pollution indicators for data-driven monitoring.",
     stack: ["Python", "Machine Learning", "Time Series", "cPanel"],
     link: "https://sensurair.com/",
-    image: "/projects/sensurair.jpeg",
+    image: null,
+    logo: "/projects/sensurair.png",
   },
   {
     title: "Mitkat",
@@ -69,6 +94,7 @@ export const projects: Project[] = [
     stack: ["Python", "Automation", "AWS", "NLP"],
     link: "https://mitkatadvisory.com/",
     image: null,
+    logo: "/clients/mitkat.png",
   },
   {
     title: "Marine Pals",
@@ -77,15 +103,16 @@ export const projects: Project[] = [
     desc: "A conversational assistant trained on domain-specific shipping documentation. A document-aware AI that lets maritime professionals query operational manuals and uploaded records efficiently.",
     stack: ["Python", "NLP", "RAG"],
     link: "https://www.marinepals.com/",
-    image: "/projects/marinepals.png",
+    image: null,
+    logo: "/clients/marinepals.png",
   },
   {
-    title: "Ani-Srini",
+    title: "Digital Onboarding Platform",
     category: "Marine",
     year: "2023",
     desc: "A digital onboarding platform for the shipping industry managing seafarer intake and documentation. An HR-intelligence system that streamlines candidate verification, credential extraction, and filtering by rank, location, and specialization.",
     stack: ["React", "OCR", "Python", "Document Parsing"],
-    link: "https://www.marinepals.com/",
+    link: "#",
     image: null,
   },
   {
@@ -98,13 +125,14 @@ export const projects: Project[] = [
     image: null,
   },
   {
-    title: "Aktrios",
+    title: "Astrikos",
     category: "Manufacturing",
     year: "2024",
     desc: "A real-time fault-detection framework using sensor telemetry for infrastructure monitoring. A smart, event-driven system that prioritizes alerts and triggers predictive-maintenance workflows based on anomaly severity.",
     stack: ["Python", "Anomaly Detection", "Cloud Monitoring"],
     link: "https://astrikos.ai/",
     image: null,
+    logo: "/clients/astrikos.png",
   },
   {
     title: "DrishtiGochar",
@@ -113,7 +141,8 @@ export const projects: Project[] = [
     desc: "A conversational interface for querying equipment and spare-part databases. A natural-language-to-SQL system with validation and retry mechanisms, delivering accurate inventory insight and procurement guidance.",
     stack: ["Python", "NLP", "SQL"],
     link: "https://swayatt.com/",
-    image: "/projects/drishti.webp",
+    image: null,
+    logo: "/clients/swayatt.png",
   },
   {
     title: "Kripaya Solutions",
@@ -123,6 +152,7 @@ export const projects: Project[] = [
     stack: ["Python", "Machine Learning"],
     link: "https://www.kripya.com/",
     image: null,
+    logo: "/clients/kripaya.svg",
   },
   {
     title: "Axelerate",
@@ -130,8 +160,9 @@ export const projects: Project[] = [
     year: "2024",
     desc: "An automated evaluation engine assessing student submissions against predefined benchmarks. An AI grading system that semantically compares responses with reference material to produce accuracy scores and detailed feedback.",
     stack: ["Python", "NLP"],
-    link: "#",
-    image: "/projects/axelerate.jpeg",
+    link: "https://axelerate.in/",
+    image: null,
+    logo: "/projects/axelerate.png",
   },
   {
     title: "QueerInk",
@@ -139,8 +170,9 @@ export const projects: Project[] = [
     year: "2023",
     desc: "A digital marketplace for buying and publishing e-books. An end-to-end content-commerce platform supporting distribution, transactions, and content management for niche readership communities.",
     stack: ["React", "Node.js", "MongoDB", "Cloud"],
-    link: "#",
-    image: "/projects/queerink.jpeg",
+    link: "https://queer-ink.com/",
+    image: null,
+    logo: "/projects/queerink.png",
   },
   {
     title: "SVCE Wearables",
@@ -150,6 +182,7 @@ export const projects: Project[] = [
     stack: ["Python", "Behavior Analytics", "Collaborative Filtering"],
     link: "https://www.svce.ac.in/",
     image: null,
+    logo: "/clients/svce.png",
   },
   {
     title: "Metavertua",
@@ -158,7 +191,8 @@ export const projects: Project[] = [
     desc: "A unified multimodal intelligence pipeline extracting structured insight from images. A framework integrating vision-language models for object detection, scene understanding, and semantic summarization, backed by retrieval-augmented reasoning.",
     stack: ["Python", "Vision-Language", "RAG"],
     link: "#",
-    image: "/projects/meta.jpeg",
+    image: null,
+    logo: "/clients/metavertua.png",
   },
   {
     title: "Euclid",
@@ -170,22 +204,23 @@ export const projects: Project[] = [
     image: null,
   },
   {
-    title: "Playful Python",
+    title: "Silverstripes",
     category: "Teaching",
     year: "2023",
     desc: "A personalized learning platform to study, practice, and assess programming concepts interactively. An adaptive system with concept exploration, guided practice, and evaluation modes designed for conceptual clarity and mastery.",
     stack: ["Python", "NLP"],
-    link: "https://www.playfulpython.com/",
-    image: "/projects/playfulpython.jpeg",
+    link: "#",
+    image: null,
   },
   {
-    title: "Rajgigs",
+    title: "Stratechgy",
     category: "Teaching",
     year: "2024",
     desc: "Educational content and instructional workflows for teaching AI/ML through hands-on coding. An interactive ed-tech framework pairing conceptual learning with practical implementation to lift engagement and outcomes.",
     stack: ["Python", "NLP", "Semantic Similarity"],
-    link: "#",
+    link: "https://www.stratechgy.in/",
     image: null,
+    logo: "/clients/stratechgy.png",
   },
   {
     title: "Music Temple",
@@ -194,7 +229,8 @@ export const projects: Project[] = [
     desc: "A software tool that interprets and transforms musical notation. A notation-intelligence module mapping symbolic music inputs into machine-readable formats for further manipulation and playback.",
     stack: ["Python"],
     link: "https://musictemple.in/",
-    image: "/projects/musictemple.webp",
+    image: null,
+    logo: "/clients/musictemple.png",
   },
 ];
 

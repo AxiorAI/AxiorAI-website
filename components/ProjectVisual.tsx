@@ -41,9 +41,10 @@ export function ProjectVisual({
   const pop = variant === 2 ? ACCENT : variant === 1 ? INK : ACCENT;
 
   return (
+    <div className="flex h-full w-full items-center justify-center" style={{ background: bg }}>
     <svg
       viewBox="0 0 400 300"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMidYMid meet"
       className="h-full w-full"
       role="img"
       aria-label={`${seed} — ${label}`}
@@ -121,5 +122,6 @@ export function ProjectVisual({
         </text>
       )}
     </svg>
+    </div>
   );
 }

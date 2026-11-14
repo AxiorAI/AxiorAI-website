@@ -5,16 +5,12 @@ const columns = [
       { label: "Work", href: "#work" },
       { label: "Capabilities", href: "#capabilities" },
       { label: "Approach", href: "#approach" },
-      { label: "Lab", href: "#lab" },
     ],
   },
   {
     heading: "Connect",
     items: [
       { label: "axiorai.s@gmail.com", href: "mailto:axiorai.s@gmail.com" },
-      { label: "LinkedIn", href: "#" },
-      { label: "X / Twitter", href: "#" },
-      { label: "GitHub", href: "#" },
     ],
   },
 ];

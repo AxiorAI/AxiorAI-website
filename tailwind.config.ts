@@ -37,10 +37,26 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        "marquee-reverse": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-14px)" },
+        },
+        shimmer: {
+          from: { backgroundPosition: "200% 0" },
+          to: { backgroundPosition: "-200% 0" },
+        },
       },
       animation: {
         marquee: "marquee 32s linear infinite",
         "marquee-slow": "marquee 60s linear infinite",
+        "marquee-reverse": "marquee-reverse 36s linear infinite",
+        "spin-slow": "spin 8s linear infinite",
+        float: "float 5s ease-in-out infinite",
+        shimmer: "shimmer 4s linear infinite",
       },
     },
   },

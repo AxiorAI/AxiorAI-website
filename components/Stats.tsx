@@ -29,7 +29,6 @@ export function Stats() {
       <div className="shell">
         <div className="flex items-center justify-between border-b border-line-invert pb-5">
           <span className="eyebrow text-bone/60">By the numbers</span>
-          <span className="eyebrow text-bone/60">(05)</span>
         </div>
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2">

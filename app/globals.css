@@ -64,8 +64,8 @@
   }
 
   .display-clamp {
-    font-size: clamp(2.5rem, 9.2vw, 9.5rem);
-    line-height: 0.84;
+    font-size: clamp(2.25rem, 6.4vw, 6.5rem);
+    line-height: 0.88;
     letter-spacing: -0.04em;
   }
 

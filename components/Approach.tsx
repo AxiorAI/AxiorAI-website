@@ -30,7 +30,7 @@ export function Approach() {
     <section id="approach" className="relative bg-paper py-24 md:py-36">
       <div className="shell">
         <div className="flex items-end justify-between border-b border-line pb-5">
-          <span className="eyebrow">How we work / (04)</span>
+          <span className="eyebrow">How we work</span>
           <span className="eyebrow hidden md:block">Idea → Production</span>
         </div>
 

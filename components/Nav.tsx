@@ -7,7 +7,6 @@ const links = [
   { label: "Work", href: "#work" },
   { label: "Capabilities", href: "#capabilities" },
   { label: "Approach", href: "#approach" },
-  { label: "Lab", href: "#lab" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -47,8 +46,8 @@ export function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`link-underline font-mono text-[12px] uppercase tracking-label transition-colors hover:text-accent ${
-                  onDark ? "text-bone/70" : "text-ink/70"
+                className={`link-underline font-mono text-[13px] font-semibold uppercase tracking-label transition-colors hover:text-accent ${
+                  onDark ? "text-bone" : "text-ink"
                 }`}
               >
                 {l.label}
@@ -59,7 +58,7 @@ export function Nav() {
 
         <a
           href="#contact"
-          className={`hidden border-2 px-5 py-2.5 font-mono text-[11px] uppercase tracking-label transition-colors md:inline-flex ${
+          className={`hidden border-2 px-5 py-2.5 font-mono text-[12px] font-semibold uppercase tracking-label transition-colors md:inline-flex ${
             onDark
               ? "border-bone text-bone hover:bg-accent hover:border-accent hover:text-paper"
               : "border-ink text-ink hover:bg-ink hover:text-paper"

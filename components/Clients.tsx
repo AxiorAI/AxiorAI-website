@@ -3,23 +3,26 @@
 import { withBase } from "@/lib/basePath";
 
 // Client logos carried from real engagements + text marks for the rest.
-const logos = [
+// `gray`: logos on a solid background — greyscale instead of a black
+// silhouette, which would flatten them into a box.
+const logos: { src: string; alt: string; gray?: boolean }[] = [
   { src: "/clients/mitkat.png", alt: "MitKat" },
-  { src: "/clients/lynoraai.png", alt: "Lynora AI" },
-  { src: "/clients/marinepals.png", alt: "Marine Pals" },
+  { src: "/clients/lynoraai.png", alt: "Lynora AI", gray: true },
+  { src: "/clients/natyaai.png", alt: "Natya AI" },
+  { src: "/clients/vaanmegam.svg", alt: "Vaan Megam" },
+  { src: "/clients/marinepals.png", alt: "Marine Pals", gray: true },
+  { src: "/clients/sensurair.png", alt: "Sensurair" },
+  { src: "/clients/oncofocus.png", alt: "Oncofocus" },
   { src: "/clients/svce.png", alt: "SVCE" },
+  { src: "/clients/astrikos.png", alt: "Astrikos" },
   { src: "/clients/kripaya.svg", alt: "Kripaya" },
+  { src: "/clients/musictemple.png", alt: "Music Temple" },
+  { src: "/clients/kidling.png", alt: "Kidling" },
+  { src: "/clients/swayatt.png", alt: "Swayatt" },
 ];
 
-const wordmarks = [
-  "Vaan Megam",
-  "Sensurair",
-  "OnCofocus",
-  "Astrikos",
-  "Music Temple",
-  "Playful Python",
-  "Swayatt",
-];
+// Clients without a usable logo yet — shown as text.
+const wordmarks = ["Silverstripes"];
 
 export function Clients() {
   const items = [...logos, ...wordmarks.map((w) => ({ text: w }))];
@@ -47,10 +50,14 @@ export function Clients() {
                 <img
                   src={withBase(item.src)}
                   alt={item.alt}
-                  className="max-h-9 w-auto object-contain opacity-80 [filter:grayscale(1)_contrast(0)_brightness(0)]"
+                  className={`max-h-10 max-w-[180px] w-auto object-contain opacity-80 transition-all duration-300 hover:scale-110 hover:opacity-100 hover:[filter:none] ${
+                    item.gray
+                      ? "[filter:grayscale(1)]"
+                      : "[filter:grayscale(1)_contrast(0)_brightness(0)]"
+                  }`}
                 />
               ) : (
-                <span className="whitespace-nowrap font-display text-3xl font-semibold text-ink">
+                <span className="whitespace-nowrap font-display text-3xl font-semibold text-ink transition-colors hover:text-accent">
                   {item.text}
                 </span>
               )}
